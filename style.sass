@@ -1,0 +1,429 @@
+$color : ("blue": #95CFD5, "orange" : #FD7E50, "purple": #70367C) // defined color its going to be use with map-get
+$black : #000 // defined
+$white : #fff // defined
+$gray : #aca9a9 // defined
+$shadow : rgba(0, 0, 0, 0.08) 0px 0px 12px
+$bej: #FBF5EE
+
+@function gridSystem($unit,$total)  //grid system
+    @return (100 * $unit) / $total + %
+
+body
+    margin: 0
+    font-family: Microsoft New Tai Lue
+.container 
+    width: 100%
+    margin: 0 auto
+    .menu-area 
+        float: left
+        width: gridSystem(2, 10)
+        border-right: 2px solid #cfcccc
+    .main-area 
+        float: left
+        width: gridSystem(5.5, 10)
+        margin-left: 40px
+        margin-right: 40px
+        border-radius: 45px
+    .calender-area 
+        position: relative
+        padding: 20px
+        padding-bottom: 10px
+        float: right
+        width: gridSystem(1.6, 10)
+        background-color: $bej
+        border-radius: 25px
+
+.center-div
+    display: flex
+    justify-content: center
+    align-items: center
+
+.company-name
+    display: contents
+    font-size: 20px
+    @extend .center-div //inheritance
+.company-area
+    margin-bottom:50px !important
+    margin-top: 5px !important
+    margin: 0 auto
+    text-align: center
+.user-img
+    border-radius: 50%
+    height: 120px
+    width: 120px
+    object-fit: cover
+    display: block
+    margin: 0 auto
+.user
+    text-align: center
+.name
+    margin-bottom: 5px
+    font-size: 1em
+.email
+    color: $gray
+    margin-top: 0px
+.fas
+    padding: 20px
+.date
+    color: $gray
+a
+    color: gray
+    text-decoration: none
+    font-weight: bold
+.menu-items
+    text-align: center
+    font-size: 0.9em
+    margin-top: 50px
+    margin-bottom: 107px
+.top-area
+    display: flow-root
+    margin-bottom: 20px
+.search-area
+    display: flex
+    margin-top: 19.92px
+.fa-search
+    padding:12px !important
+    background-color: #e4e2e2a4
+    border-radius: 5px
+    margin-right: 12px
+    cursor: pointer
+.btn
+    background-color: $black
+    color: white
+    padding: 12px 20px
+    border-radius: 5px
+    border: none
+    cursor: pointer
+.user-area
+    float: left
+.search-area
+    float: right
+.box
+    position: relative
+    z-index: 99
+.box-area
+    .first
+        width: 225px
+        background-color: map-get($color,"purple")
+        border-radius: 10px
+        color: white
+        padding: 25px
+    i
+        opacity: 0.5
+        float: right
+        padding-right: 0px
+        padding-top: 15px
+    i:hover
+        opacity: 1
+        cursor: pointer
+    h3
+        width: 146px
+    p
+        color: $white
+        opacity: 0.75
+    .one 
+        position: absolute
+        left: 48px
+        z-index: -1
+    .two 
+        z-index: -5
+        position: absolute
+        left: 68px
+        top: 24px
+.dot
+    height: 38px
+    width: 38px
+    background-color: $black
+    color: white
+    border-radius: 50%
+    text-align: center
+    display: inline-block
+    content-visibility: auto
+    line-height: 39px
+    z-index: 999
+.myProgress 
+    width: 100%
+    border-radius: 5px
+    background-color: #0000001c
+
+.myBar 
+    width: 90%
+    height: 5px
+    border-radius: 5px
+    background-color: $white
+.box-area
+    display: flex
+    .second
+        @extend .first
+        background-color: map-get($color,"blue")
+        margin: 0px 35px
+        .myBar
+            width: 46%
+    .third
+        @extend .first
+        background-color: map-get($color,"orange")
+        .myBar
+            width: 73%
+.tasks-area
+    width: 42%
+    float: left
+    min-width: 200px
+.task
+    box-shadow: $shadow
+    border-radius: 15px
+    padding: 10px
+    border-left: 10px solid
+    border-color: map-get($color,"orange")
+    p
+        color: $gray
+        margin-bottom: 0px
+    h4
+        display: inline
+    input
+        float: right
+        width: 20px
+        height: 40px
+        color: $gray
+        border-radius: 50%
+.tasks-area
+    margin-top: 33px
+    .second
+        border-color: map-get($color,"purple")
+        margin: 30px 0px
+    .third
+        border-color: map-get($color,"blue")
+.round 
+  position: relative
+  float: right
+
+.round label 
+  background-color: $white
+  border: 1px solid #ccc
+  border-radius: 50%
+  cursor: pointer
+  height: 20px
+  left: 0
+  position: absolute
+  top: 0
+  width: 20px
+
+.round label:after 
+  border: 2px solid #fff
+  border-top: none
+  border-right: none
+  content: ""
+  height: 6px
+  left: 3px
+  opacity: 0
+  position: absolute
+  top: 5px
+  transform: rotate(-45deg)
+  width: 12px
+
+.round input[type="checkbox"] 
+  visibility: hidden
+
+.round input[type="checkbox"]:checked + label 
+  background-color: $black
+  border-color: $black
+
+.round input[type="checkbox"]:checked + label:after 
+  opacity: 1
+.right-area
+    margin-left: 10px
+    margin-top: 33px
+    float: right
+.statics-area
+    display: flex
+    p
+        color: $gray
+.tracked-time,
+    width: 83px
+    height: 114px
+    border: #dddcdc77 solid 1px
+    border-radius: 5px
+    background-color: #dddcdc77
+    padding: 5px 11px
+.finished-task
+    @extend .tracked-time
+    margin: 0px 38px
+.add-new-project
+    @extend .tracked-time
+    border: 2px dashed #dddcdcab
+    background-color: $white
+    cursor: pointer
+.plan-area
+    border-radius: 20px
+    display: inline-flex
+    box-shadow: $shadow
+    margin-top: 35px
+    h2
+        display: contents
+    p
+        color: $gray
+        width: 55%
+    .img-area
+        display: inline-block
+        float: right
+    img
+        height: 141px
+        object-fit: cover
+.text-area
+    padding: 15px 0px 0px 19px
+    h4
+        margin-bottom: 0px
+    p
+        margin-top: 0px
+.calender
+    display: inline-block
+    margin: 10px !important
+    font-size: 20px !important
+.calender-area
+    position: relative
+    .fa-bell
+        margin-left: 40px
+        border-radius: 5px
+        width: 10px 
+        height: 10px
+        cursor: pointer
+        background-color: $white
+        right: 13px
+        position: absolute
+    .vl 
+        border-left: 4px solid
+        height: 35px
+        float: left
+        margin: 10px
+    .blue
+        border-color: map-get($color,"blue")
+    .orange
+        border-color: map-get($color,"orange")
+    .purple
+        border-color: map-get($color,"purple")
+    .time
+        float: left
+    h3
+        margin: 12px
+        font-size: 15px
+    p
+        font-size: 15px
+    .text
+        p
+            color: $gray
+        h4,p
+            display: inline
+            font-size: 14px
+    .fa-ellipsis-h
+        position: absolute
+        right: 0
+        opacity: 0.5
+        cursor: pointer
+    .fa-ellipsis-h:hover
+        opacity: 1
+.date-area
+    display: flex
+    float:right
+.cal
+    margin: 15px 0px
+.timer-area
+    justify-content: center
+    align-items: center
+    display: flex
+    position: relative
+.Timer
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    background-color: $white
+    border-radius: 28px
+    height: 30px
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
+    padding-left: 2px
+    padding-right: 8px
+    color: $gray
+
+    i
+        padding: 10px
+        padding-right: 5px
+        color: map-get($color,"orange")
+        font-size: 12px
+.container
+    .fa-bars
+        display: none
+.calender-menu
+    position: absolute
+    right: 0
+    padding: 10px
+    border-radius: 15px 0px 0px 15px
+    top: 75px
+    background-color: $bej
+    font-weight: 600
+    display: none
+.calender-menu:hover
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+    cursor: pointer
+
+$layout-breakpoint-large: 1390px
+$layout-breakpoint-small: 1037px
+$layout-breakpoint-xsmall: 900px
+
+@media (max-width: $layout-breakpoint-large) 
+    .calender-area
+        display: none
+    .calender-menu
+        display: block
+    .container
+        .fa-bars
+            display: block
+            position: absolute
+            right: 0
+            top: 0
+        .fa-bars:before
+            cursor: pointer
+        .bg 
+            display: none !important
+
+        .menu-items 
+            display: none
+    .menu-area 
+        border-right: none !important
+    .main-area 
+        width: 70% !important
+    .tasks-area 
+        position: absolute
+        left: 30px
+    .box-area
+        overflow: scroll
+    ::-webkit-scrollbar 
+        width: 12px
+        height: 12px
+
+    ::-webkit-scrollbar-track 
+        border: 1px solid $bej
+        border-radius: 10px
+
+    ::-webkit-scrollbar-thumb 
+        background: $bej
+        border-radius: 10px
+
+    ::-webkit-scrollbar-thumb:hover
+        background: #e4dce2
+    
+@media (max-width: $layout-breakpoint-xsmall) 
+    .menu-area
+        display: contents
+    .tasks-area
+        position: relative !important
+        display: contents
+    .right-area
+        float: left !important
+        width: 40%
+        display: contents
+    .main-area
+        width: 90% !important
+    .top-area
+        display: grid
+
+
+
